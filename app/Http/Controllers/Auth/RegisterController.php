@@ -53,10 +53,10 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone'=>['required','string','unique:users', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            
+            'captcha' => 'required|captcha'
         ]);
     }
-
+            
     /**
      * Create a new user instance after a valid registration.
      *
