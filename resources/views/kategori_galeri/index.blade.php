@@ -1,29 +1,35 @@
+@extends('layouts.app')
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>kategori Galeri</title>
-</head>
-<body>
+@section('content')
 
-<table border="2">
-	<tr>
-		<td>ID</td>
-		<td>]Nama</td>
-		<td>User ID</td>
-	</tr>
-	@foreach ($kategori_galeri as $item)
+<body> 
+<a href="{!! route('kategori_galeri.create') !!}" class="btn btn-primary">Tambah Data</a>
 
+        <table border= "1">
 
-	<tr>
-		<td>{!! $item->id !!}</td>
-		<td>{!! $item->nama !!}</td>
-		<td>{!! $item->users_id !!}</td>
-	</tr>
-	@endforeach
+        <tr> 
+        <td>id </td>
+        <td>nama</td>
+        <td> users_id </td>
+        <td>aksi</td>
+        </tr>
 
-</table>
+        @foreach($kategori_galeri as $item)
 
+        <tr>
 
+        <td> {!! $item ->id !!}</td>
+        <td> {!! $item ->nama!!}</td>
+        <td> {!! $item ->users_id !!}</td>
+        <td>
+        <a href="{!! route('kategori_galeri.show',[$item->id]) !!}" 
+        class="btn btn-succes">
+        Lihat</a>
+
+        </tr>
+
+        @endforeach
+    </table>
 </body>
-</html>
+
+@endsection
